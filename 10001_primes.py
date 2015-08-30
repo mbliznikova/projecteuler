@@ -1,6 +1,3 @@
-N = 600851475143
-
-
 def generator_of_primes():
     a = 3
     primes = [3]
@@ -19,12 +16,7 @@ def generator_of_primes():
             primes.append(a)
             yield a
 
-n = N
-for p in generator_of_primes():
-    while n % p == 0:
-        if n <= p:
-            break
-        n = n / p
-    if n <= p:
-        print n
+for i, prime in enumerate(generator_of_primes(), 1):
+    if i == 10001:
+        print prime
         break

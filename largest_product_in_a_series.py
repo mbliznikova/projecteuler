@@ -17,16 +17,16 @@ n = "731671765313306249192251196744265747423553491949349698352031277450632623" \
 def largest_product(num, num_adjacent):
     largest = 0
     largest_list = []
-    for i in range(0, len(num)):
-        for_largest_list = []
-        a = 1
-        if i < 988:
-            for j in range(i, i + num_adjacent):
-                a *= int(num[j])
-                for_largest_list.append(int(num[j]))
-            if a > largest:
-                largest = a
-                largest_list = for_largest_list
+    for i in range(len(num)-num_adjacent):
+        candidate_list = []
+        current_largest = 1
+        for j in range(i, i + num_adjacent):
+            int_num_element = int(num[j])
+            current_largest *= int_num_element
+            candidate_list.append(int_num_element)
+        if current_largest > largest:
+            largest = current_largest
+            largest_list = candidate_list
     print largest
     print largest_list
 
